@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Entidades;
 using DAL;
+using System.Data;
 
 namespace BLL
 {
@@ -47,5 +48,6 @@ namespace BLL
             Parcial2Db db = new Parcial2Db();
             return db.presupuesto.Find(Id);
         }
+        
     }
 }
