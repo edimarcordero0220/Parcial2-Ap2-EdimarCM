@@ -1,0 +1,13 @@
+﻿Create table Presupuesto(
+PresupuestoId int identity (1,1) primary key,
+Fecha datetime,
+Descripcion varchar(30),
+Monto float
+);
+ create table PresupuestoDetalle(
+ Id int identity (1,1) primary key,
+ PresupuestoId int,
+ Descripcion varchar (30),
+ Meta int,
+ logrado  int
+ );
