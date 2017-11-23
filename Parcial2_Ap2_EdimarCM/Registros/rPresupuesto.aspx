@@ -25,7 +25,7 @@
                 <td class="auto-style1">
                     <asp:Label ID="Label1" runat="server" Text="Id"></asp:Label>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="idpreTextBox" runat="server"></asp:TextBox>
                 </td>
                 <td class="auto-style2">
                     <asp:Label ID="Label2" runat="server" Text="Fecha"></asp:Label>
@@ -49,10 +49,10 @@
                     <asp:Button ID="GuardarButton" runat="server" Height="42px" OnClick="GuardarButton_Click" Text="Guardar" Width="97px" />
                 </td>
                 <td class="auto-style2">
-                    <asp:Button ID="BuscarButton" runat="server" Height="40px" Text="Buscar" Width="91px" />
+                    <asp:Button ID="BuscarButton" runat="server" Height="40px" Text="Buscar" Width="91px" OnClick="BuscarButton_Click" />
                 </td>
                 <td>
-                    <asp:Button ID="NuevoButton" runat="server" Height="38px" Text="Nuevo" Width="88px" />
+                    <asp:Button ID="NuevoButton" runat="server" Height="38px" Text="Nuevo" Width="88px" OnClick="NuevoButton_Click" />
                 </td>
             </tr>
         </table>

@@ -29,6 +29,14 @@ namespace Parcial2_Ap2_EdimarCM.Registros
                 ViewState["rPresupuestoDetalle"] = dt;
             }
         }
+        public void Limpiar()
+        {
+            IDTextBox.Text = "";
+            DescripcionTextBox.Text = "";
+            MetaTextBox.Text = "";
+            LogradoTextBox.Text = "";
+
+        }
         public void LlenarClase(PresupuestoDetalle pd)
         {
 
@@ -55,17 +63,34 @@ namespace Parcial2_Ap2_EdimarCM.Registros
         }
         protected void GuardarButton_Click(object sender, EventArgs e)
         {
-            Entidades.PresupuestoDetalle detalle = new Entidades.PresupuestoDetalle();
-            LlenarClase(detalle);
-            PresupuestoDetalleBLL.Insertar(detalle);
+            if (IDTextBox.Text == "" || DescripcionTextBox.Text == ""||MetaTextBox.Text=="" || LogradoTextBox.Text=="")
+            {
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('Debes Llenar Todos los campos Señalado con (*)');</script>");
+            }
+            else
+            {
+                Entidades.PresupuestoDetalle detalle = new Entidades.PresupuestoDetalle();
+                LlenarClase(detalle);
+                PresupuestoDetalleBLL.Insertar(detalle);
+                Limpiar();
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('Guardo');</script>");
+            }
         }
 
         protected void AgregarButton_Click(object sender, EventArgs e)
         {
-            DataTable dt = (DataTable)ViewState["rPresupuestoDetalle"];
-            dt.Rows.Add(DescripcionTextBox.Text, MetaTextBox.Text, LogradoTextBox.Text);
-            ViewState["rPResupuestoDetalle"] = dt;
-            this.BindGrid();
+            if (MetaTextBox.Text=="" || LogradoTextBox.Text=="")
+            {
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('Debes Llenar Ambos Campos(Meta y Logrado)');</script>");
+            }
+            else
+            {
+                DataTable dt = (DataTable)ViewState["rPresupuestoDetalle"];
+                dt.Rows.Add(DescripcionTextBox.Text, MetaTextBox.Text, LogradoTextBox.Text);
+                ViewState["rPResupuestoDetalle"] = dt;
+                this.BindGrid();
+            }
+           
         }
         public void BuscarPresupuesto(Presupuestos p)
         {
@@ -76,6 +101,23 @@ namespace Parcial2_Ap2_EdimarCM.Registros
         protected void Buscar1Button_Click(object sender, EventArgs e)
         {
             BuscarPresupuesto(PresupuestoBLL.Buscar(v.String(IDTextBox.Text)));
+        }
+
+        protected void NuevoButton_Click(object sender, EventArgs e)
+        {
+            Limpiar();
+        }
+        public void BuscarDetalle(PresupuestoDetalle pd)
+        {
+            iddetalleTextBox.Text = pd.Id .ToString();
+
+            
+
+
+        }
+        protected void BuscarButton_Click(object sender, EventArgs e)
+        {
+            BuscarDetalle(DetalleDiscoBLL.Buscar(v.String(detalleTextBox.Text)));
         }
     }
 }

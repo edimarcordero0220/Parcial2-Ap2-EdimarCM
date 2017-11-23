@@ -29,15 +29,16 @@
                 <td class="auto-style3">
                     <asp:Label ID="Label2" runat="server" Text="Id"></asp:Label>
 &nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="iddetalleTextBox" runat="server"></asp:TextBox>
                 </td>
                 <td class="auto-style4">
                     <asp:Label ID="Label3" runat="server" Text="PresupuestoId"></asp:Label>
                     <asp:TextBox ID="IDTextBox" runat="server"></asp:TextBox>
-                </td>
+                    *</td>
                 <td>
                     <asp:Label ID="Label4" runat="server" Text="Descripcion"></asp:Label>
                     <asp:TextBox ID="DescripcionTextBox" runat="server"></asp:TextBox>
+                    &nbsp;*
                     <asp:Button ID="Buscar1Button" runat="server" OnClick="Buscar1Button_Click" Text="Buscar" />
                 </td>
             </tr>
@@ -45,12 +46,12 @@
                 <td class="auto-style3">
                     <asp:Label ID="Label5" runat="server" Text="Meta"></asp:Label>
                     <asp:TextBox ID="MetaTextBox" runat="server"></asp:TextBox>
-                </td>
+                    *</td>
                 <td class="auto-style4">
                     <asp:Label ID="Label6" runat="server" Text="Logrado"></asp:Label>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <asp:TextBox ID="LogradoTextBox" runat="server"></asp:TextBox>
-                </td>
+                    *</td>
                 <td>
                     <asp:Button ID="AgregarButton" runat="server" OnClick="AgregarButton_Click" Text="Agregar" />
                 </td>
@@ -70,10 +71,10 @@
                     <asp:Button ID="GuardarButton" runat="server" Height="53px" OnClick="GuardarButton_Click" Text="Guardar" Width="118px" />
                 </td>
                 <td class="auto-style2">
-                    <asp:Button ID="BuscarButton" runat="server" Height="49px" Text="Buscar" Width="103px" />
+                    <asp:Button ID="BuscarButton" runat="server" Height="49px" Text="Buscar" Width="103px" OnClick="BuscarButton_Click" />
                 </td>
                 <td>
-                    <asp:Button ID="NuevoButton" runat="server" Height="56px" Text="Nuevo" Width="137px" />
+                    <asp:Button ID="NuevoButton" runat="server" Height="56px" Text="Nuevo" Width="137px" OnClick="NuevoButton_Click" />
                 </td>
             </tr>
             <tr>
